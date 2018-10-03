@@ -1,4 +1,4 @@
-### 第1章　并发编程的挑战
+第1章　并发编程的挑战
 -----
 CPU通过时间片分配算法来循环执行任务，当前任务执行一个时间片后会切换到下一个任务。但是，在切换前会保存上一个任务的状态，以便下次切换回这个任务时，可以再加载这个任务的状态。所以任务从保存到再加载的过程就是一次上下文切换。
 
@@ -23,7 +23,7 @@ CPU通过时间片分配算法来循环执行任务，当前任务执行一个�
 ##### 在资源限制情况下进行并发编程
 根据不同的资源限制调整程序的并发度。
 
-### 第2章　Java并发机制的底层实现原理
+第2章　Java并发机制的底层实现原理
 -----
 在多线程并发编程中synchronized和volatile都扮演着重要的角色，volatile是轻量级的 synchronized，它在多处理器开发中保证了共享变量的“可见性”。可见性的意思是当一个线程修改一个共享变量时，另外一个线程能读到这个修改的值。如果volatile变量修饰符使用恰当的话，它比synchronized的使用和执行成本更低，因为它不会引起线程上下文的切换和调度。
 
@@ -76,7 +76,7 @@ Java对象头里的Mark Word里默认存储对象的HashCode、分代年龄和�
   * 只能保证一个共享变量的原子操作。
 * 使用锁机制实现原子操作
 
-### 第3章　Java内存模型
+第3章　Java内存模型
 -----
 ##### 并发编程模型的两个关键问题
 * 线程之间如何通信
@@ -308,24 +308,24 @@ ThreadLocal，即线程变量，是一个以ThreadLocal对象为键、任意对�
 线程池的本质就是使用了一个线程安全的工作队列连接工作者线程和客户端线程，客户端线程将任务放入工作队列后便返回，而工作者线程则不断地从工作队列上取出工作并执行。当工作队列为空时，所有的工作者线程均等待在工作队列上，当有客户端提交了一个任务之后会通知任意一个工作者线程，随着大量的任务被提交，更多的工作者线程会被唤醒。
 线程池中线程数量并不是越多越好，具体的数量需要评估每个任务的处理时间，以及当前计算机的处理器能力和数量。使用的线程过少，无法发挥处理器的性能；使用的线程过多，将会增加系统的无故开销，起到相反的作用。
 
-### 第5章　Java中的锁
+第5章　Java中的锁
 ----
-#### Lock接口
+##### Lock接口
 锁是用来控制多个线程访问共享资源的方式，一般来说，一个锁能够防止多个线程同时 访问共享资源（但是有些锁可以允许多个线程并发的访问共享资源，比如读写锁）。在Lock接 口出现之前，Java程序是靠synchronized关键字实现锁功能的，而Java SE 5之后，并发包中新增 了Lock接口（以及相关实现类）用来实现锁功能，它提供了与synchronized关键字类似的同步功 能，只是在使用时需要显式地获取和释放锁。虽然它缺少了（通过synchronized块或者方法所提
 供的）隐式获取释放锁的便捷性，但是却拥有了锁获取与释放的可操作性、可中断的获取锁以 及超时获取锁等多种synchronized关键字所不具备的同步特性。
 使用synchronized关键字将会隐式地获取锁，但是它将锁的获取和释放固化了，也就是先获取再释放。当然，这种方式简化了同步的管理，可是扩展性没有显示的锁获取和释放来的好。
-#### Lock接口提供的synchronized关键字所不具备的主要特性
+##### Lock接口提供的synchronized关键字所不具备的主要特性
 1)尝试非阻塞地获取锁
 2)能被中断地获取锁
 3)超时获取锁
 
-#### 队列同步器
+##### 队列同步器
 队列同步器AbstractQueuedSynchronizer（以下简称同步器），是用来构建锁或者其他同步组件的基础框架，它使用了一个int成员变量表示同步状态，通过内置的FIFO队列来完成资源获取线程的排队工作。
 同步器是实现锁（也可以是任意同步组件）的关键，在锁的实现中聚合同步器，利用同步器实现锁的语义。可以这样理解二者之间的关系：锁是面向使用者的，它定义了使用者与锁交互的接口（比如可以允许两个线程并行访问），隐藏了实现细节；同步器面向的是锁的实现者，它简化了锁的实现方式，屏蔽了同步状态管理、线程的排队、等待与唤醒等底层操作。锁和同步器很好地隔离了使用者和实现者所需关注的领域。
 
 同步器提供的模板方法基本上分为3类：独占式获取与释放同步状态、共享式获取与释放同步状态和查询同步队列中的等待线程情况。自定义同步组件将使用同步器提供的模板方法来实现自己的同步语义。
 
-#### 队列同步器的实现分析
+##### 队列同步器的实现分析
 * 同步队列<br>
 同步器依赖内部的同步队列（一个FIFO双向队列）来完成同步状态的管理，当前线程获取 同步状态失败时，同步器会将当前线程以及等待状态等信息构造成为一个节点（Node）并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，会把首节点中的线程唤醒，使其再次尝试获取同步状态。同步队列中的节点（Node）用来保存获取同步状态失败的线程引用、等待状态以及前驱和后继节点。
 
@@ -338,29 +338,29 @@ ThreadLocal，即线程变量，是一个以ThreadLocal对象为键、任意对�
 * 独占式超时获取同步状态<br>
 独占式超时获取同步状态doAcquireNanos(int arg,long nanosTimeout) 和独占式获取同步状态acquire(int args)在流程上非常相似，其主要区别在于未获取到同步状 态时的处理逻辑。acquire(int args)在未获取到同步状态时，将会使当前线程一直处于等待状 态，而doAcquireNanos(int arg,long nanosTimeout)会使当前线程等待nanosTimeout纳秒，如果当前线程在nanosTimeout纳秒内没有获取到同步状态，将会从等待逻辑中自动返回。
 
-#### 重入锁
+##### 重入锁
 重入锁ReentrantLock，顾名思义，就是支持重进入的锁，它表示该锁能够支持一个线程对资源的重复加锁。除此之外，该锁的还支持获取锁时的公平和非公平性选择。
-#### 公平与非公平获取锁的区别
+##### 公平与非公平获取锁的区别
 对于非公平锁，只要CAS设置同步状态成功，则表示当前线程获取了锁，而公平锁则不同，该方法与nonfairTryAcquire(int acquires)比较，唯一不同的位置为判断条件多了 hasQueuedPredecessors()方法，即加入了同步队列中当前节点是否有前驱节点的判断，如果该方法返回true，则表示有线程比当前线程更早地请求获取锁，因此需要等待前驱线程获取并释放锁之后才能继续获取锁。
 公平锁能够减少“饥饿”发生的概率，等待越久的请求越是能够得到优先满足。非公平性锁虽然可能造成线程“饥饿”，但极少的线程切换，保证了其更大的吞吐量。
 
-#### 读写锁
+##### 读写锁
 读写锁在同一时刻可以允许多个读线程访问，但是在写线程访问时，所有的读
 线程和其他写线程均被阻塞。读写锁维护了一对锁，一个读锁和一个写锁，通过分离读锁和写锁，使得并发性相比一般的排他锁有了很大提升。
-#### 读写锁的实现分析
+##### 读写锁的实现分析
 * 写锁的获取与释放
 写锁是一个支持重进入的排它锁。如果当前线程已经获取了写锁，则增加写状态。如果当 前线程在获取写锁时，读锁已经被获取（读状态不为0）或者该线程不是已经获取写锁的线程， 则当前线程进入等待状态。
 * 读锁的获取与释放
 读锁是一个支持重进入的共享锁，它能够被多个线程同时获取，在没有其他写线程访问 （或者写状态为0）时，读锁总会被成功地获取，而所做的也只是（线程安全的）增加读状态。如果当前线程已经获取了读锁，则增加读状态。如果当前线程在获取读锁时，写锁已被其他线程获取，则进入等待状态。
-#### 锁降级
+##### 锁降级
 锁降级是指把持住（当前拥有的）写锁，再获取到读锁，随后释放（先前拥有的）写锁的过程。
-#### LockSupport工具
+##### LockSupport工具
 LockSupport定义了一组的公共静态方法，这些方法提供了最基本的线程阻塞和唤醒功能，而LockSupport也成为构建同步组件的基础工具。
-#### Condition接口
+##### Condition接口
 Condition定义了等待/通知两种类型的方法，当前线程调用这些方法时，需要提前获取到 Condition对象关联的锁。Condition对象是由Lock对象（调用Lock对象的newCondition()方法）创建出来的，换句话说，Condition是依赖Lock对象的。
 
 ConditionObject是同步器AbstractQueuedSynchronizer的内部类，因为Condition的操作需要获取相关联的锁，所以作为同步器的内部类也较为合理。每个Condition对象都包含着一个队列（以下称为等待队列），该队列是Condition对象实现等待/通知功能的关键。
-#### Condition的实现分析
+##### Condition的实现分析
 * 等待队列<br>
 等待队列是一个FIFO的队列，在队列中的每个节点都包含了一个线程引用，该线程就是在Condition对象上等待的线程，如果一个线程调用了Condition.await()方法，那么该线程将会释放锁、构造成节点加入等待队列并进入等待。
 * 等待<br>
@@ -368,11 +368,11 @@ ConditionObject是同步器AbstractQueuedSynchronizer的内部类，因为Condit
 * 通知<br>
 调用Condition的signal()方法，将会唤醒在等待队列中等待时间最长的节点（首节点），在唤醒节点之前，会将节点移到同步队列中。
 
-### 第6章　Java并发容器和框架
+第6章　Java并发容器和框架
 ----
-#### ConcurrentHashMap的实现原理与使用
+##### ConcurrentHashMap的实现原理与使用
 ConcurrentHashMap是线程安全且高效的HashMap。
-#### 使用ConcurrentHashMap的原因
+##### 使用ConcurrentHashMap的原因
 （1）线程不安全的HashMap
 在多线程环境下，使用HashMap进行put操作会引起死循环，导致CPU利用率接近100%，所以在并发情况下不能使用HashMap。
 （2）效率低下的HashTable
@@ -381,23 +381,23 @@ HashTable容器使用synchronized来保证线程安全，但在线程竞争激�
 HashTable容器在竞争激烈的并发环境下表现出效率低下的原因是所有访问HashTable的
 线程都必须竞争同一把锁，假如容器里有多把锁，每一把锁用于锁容器其中一部分数据，那么当多线程访问容器里不同数据段的数据时，线程间就不会存在锁竞争，从而可以有效提高并发访问效率，这就是ConcurrentHashMap所使用的锁分段技术。
 
-#### ConcurrentHashMap的结构
+##### ConcurrentHashMap的结构
 ConcurrentHashMap是由Segment数组结构和HashEntry数组结构组成。Segment是一种可重入锁（ReentrantLock），在ConcurrentHashMap里扮演锁的角色；HashEntry则用于存储键值对数据。一个ConcurrentHashMap里包含一个Segment数组。Segment的结构和HashMap类似，是一种数组和链表结构。一个Segment里包含一个HashEntry数组，每个HashEntry是一个链表结构的元素，每个Segment守护着一个HashEntry数组里的元素，当对HashEntry数组的数据进行修改时， 必须首先获得与它对应的Segment锁。
 
-#### ConcurrentHashMap的初始化
+##### ConcurrentHashMap的初始化
 ConcurrentHashMap初始化方法是通过initialCapacity、loadFactor和concurrencyLevel等几个参数来初始化segment数组、段偏移量segmentShift、段掩码segmentMask和每个segment里的 HashEntry数组来实现的。
-#### ConcurrentHashMap的操作
+##### ConcurrentHashMap的操作
 1.get操作
 Segment的get操作实现非常简单和高效。先经过一次再散列，然后使用这个散列值通过散列运算定位到Segment，再通过散列算法定位到元素。
 2.put操作
 由于put方法里需要对共享变量进行写入操作，所以为了线程安全，在操作共享变量时必 须加锁。put方法首先定位到Segment，然后在Segment里进行插入操作。插入操作需要经历两个 步骤，第一步判断是否需要对Segment里的HashEntry数组进行扩容，第二步定位添加元素的位置，然后将其放在HashEntry数组里。
 3.size操作
 如果要统计整个ConcurrentHashMap里元素的大小，就必须统计所有Segment里元素的大小后求和。ConcurrentHashMap的做法是先尝试2次通过不锁住Segment的方式来统计各个Segment大小，如果统计的过程中，容器的count发生了变化，则再采用加锁的方式来统计所有Segment的大小。
-#### ConcurrentLinkedQueue
+##### ConcurrentLinkedQueue
 在并发编程中，有时候需要使用线程安全的队列。如果要实现一个线程安全的队列有两种方式：一种是使用阻塞算法，另一种是使用非阻塞算法。使用阻塞算法的队列可以用一个锁（入队和出队用同一把锁）或两个锁（入队和出队用不同的锁）等方式来实现。非阻塞的实现方 式则可以使用循环CAS的方式来实现。
 ConcurrentLinkedQueue是一个基于链接节点的无界线程安全队列，它采用先进先出的规则对节点进行排序，当我们添加一个元素的时候，它会添加到队列的尾部；当我们获取一个元素时，它会返回队列头部的元素。
 ConcurrentLinkedQueue由head节点和tail节点组成，每个节点（Node）由节点元素（item）和 指向下一个节点（next）的引用组成，节点与节点之间就是通过这个next关联起来，从而组成一 张链表结构的队列。默认情况下head节点存储的元素为空，tail节点等于head节点。
-#### Java中的阻塞队列
+##### Java中的阻塞队列
 阻塞队列（BlockingQueue）是一个支持两个附加操作的队列。这两个附加的操作支持阻塞的插入和移除方法。
 1）支持阻塞的插入方法：意思是当队列满时，队列会阻塞插入元素的线程，直到队列不满。
 2）支持阻塞的移除方法：意思是在队列为空时，获取元素的线程会等待队列变为非空。
@@ -410,15 +410,15 @@ JDK 7提供了7个阻塞队列，如下。
 * SynchronousQueue：一个不存储元素的阻塞队列。
 * LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
 * LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
-#### 阻塞队列的实现原理
+##### 阻塞队列的实现原理
 使用通知模式实现。所谓通知模式，就是当生产者往满的队列里添加元素时会阻塞住生产者，当消费者消费了一个队列中的元素后，会通知生产者当前队列可用。
-#### Fork/Join框架
+##### Fork/Join框架
 Fork/Join框架是Java 7提供的一个用于并行执行任务的框架，是一个把大任务分割成若干个小任务，最终汇总每个小任务结果后得到大任务结果的框架。
-#### 工作窃取算法
+##### 工作窃取算法
 工作窃取（work-stealing）算法是指某个线程从其他队列里窃取任务来执行。
 工作窃取算法的优点：充分利用线程进行并行计算，减少了线程间的竞争。
 工作窃取算法的缺点：在某些情况下还是存在竞争，比如双端队列里只有一个任务时。并且该算法会消耗了更多的系统资源，比如创建多个线程和多个双端队列。
-#### Fork/Join框架的设计
+##### Fork/Join框架的设计
 步骤1　分割任务。
 步骤2　执行任务并合并结果。<br>
 
@@ -427,9 +427,9 @@ Fork/Join使用两个类来完成以上两件事情。
 * RecursiveAction：用于没有返回结果的任务。
 * RecursiveTask：用于有返回结果的任务。
 ②ForkJoinPool：ForkJoinTask需要通过ForkJoinPool来执行。
-#### Fork/Join框架的异常处理
+##### Fork/Join框架的异常处理
 ForkJoinTask在执行的时候可能会抛出异常，但是我们没办法在主线程里直接捕获异常， 所以ForkJoinTask提供了isCompletedAbnormally()方法来检查任务是否已经抛出异常或已经被取消了，并且可以通过ForkJoinTask的getException方法获取异常。
-#### Fork/Join框架的实现原理
+##### Fork/Join框架的实现原理
 ForkJoinPool由ForkJoinTask数组和ForkJoinWorkerThread数组组成，ForkJoinTask数组负责将存放程序提交给ForkJoinPool的任务，而ForkJoinWorkerThread数组负责执行这些任务。
 （1）ForkJoinTask的fork方法实现原理
 当我们调用ForkJoinTask的fork方法时，程序会调用ForkJoinWorkerThread的pushTask方法异步地执行这个任务，然后立即返回结果。
@@ -437,49 +437,50 @@ ForkJoinPool由ForkJoinTask数组和ForkJoinWorkerThread数组组成，ForkJoinT
 Join方法的主要作用是阻塞当前线程并等待获取结果。
 在doJoin()方法里，首先通过查看任务的状态，看任务是否已经执行完成，如果执行完成，则直接返回任务状态；如果没有执行完，则从任务数组里取出任务并执行。如果任务顺利执行完成，则设置任务状态为NORMAL，如果出现异常，则记录异常，并将任务状态设置为 EXCEPTIONAL。
 
-### 第7章　Java中的13个原子操作类
+第7章　Java中的13个原子操作类
+----
 Java从JDK 1.5开始提供了java.util.concurrent.atomic包（以下简称Atomic包），这个包中的原子操作类提供了一种用法简单、性能高效、线程安全地更新一个变量的方式。因为变量的类型有很多种，所以在Atomic包里一共提供了13个类，属于4种类型的原子更新方式，分别是原子更新基本类型、原子更新数组、原子更新引用和原子更新属性（字段）。 Atomic包里的类基本都是使用Unsafe实现的包装类。
 使用原子的方式更新基本类型，Atomic包提供了以下3个类。
-#### 原子更新基本类型类
+##### 原子更新基本类型类
 * AtomicBoolean：原子更新布尔类型。
 * AtomicInteger：原子更新整型。
 * AtomicLong：原子更新长整型。
-#### 原子更新数组
+##### 原子更新数组
 通过原子的方式更新数组里的某个元素，Atomic包提供了以下4个类。
 * AtomicIntegerArray：原子更新整型数组里的元素。
 * AtomicLongArray：原子更新长整型数组里的元素。
 * AtomicReferenceArray：原子更新引用类型数组里的元素。
 * AtomicIntegerArray类主要是提供原子的方式更新数组里的整型。
-#### 原子更新引用类型
+##### 原子更新引用类型
 原子更新基本类型的AtomicInteger，只能更新一个变量，如果要原子更新多个变量，就需要使用这个原子更新引用类型提供的类。Atomic包提供了以下3个类。
 * AtomicReference：原子更新引用类型。
 * AtomicReferenceFieldUpdater：原子更新引用类型里的字段。
 * AtomicMarkableReference：原子更新带有标记位的引用类型。可以原子更新一个布尔类 型的标记位和引用类型。
-#### 原子更新字段类
+##### 原子更新字段类
 如果需原子地更新某个类里的某个字段时，就需要使用原子更新字段类，Atomic包提供了以下3个类进行原子字段更新。
 * AtomicIntegerFieldUpdater：原子更新整型的字段的更新器。
 * AtomicLongFieldUpdater：原子更新长整型字段的更新器。
 * AtomicStampedReference：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于原子的更新数据和数据的版本号，可以解决使用CAS进行原子更新时可能出现的ABA问题。
 
-### 第8章　Java中的并发工具类
+第8章　Java中的并发工具类
 ---
-#### 等待多线程完成的CountDownLatch
+##### 等待多线程完成的CountDownLatch
 CountDownLatch允许一个或多个线程等待其他线程完成操作。
-#### 同步屏障CyclicBarrier
+##### 同步屏障CyclicBarrier
 CyclicBarrier的字面意思是可循环使用（Cyclic）的屏障（Barrier）。它要做的事情是，让一组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续运行。
-#### CyclicBarrier的应用场景
+##### CyclicBarrier的应用场景
 CyclicBarrier可以用于多线程计算数据，最后合并计算结果的场景。
 C#### yclicBarrier和CountDownLatch的区别
 CountDownLatch的计数器只能使用一次，而CyclicBarrier的计数器可以使用reset()方法重置。所以CyclicBarrier能处理更为复杂的业务场景。
 CyclicBarrier还提供其他有用的方法，比如getNumberWaiting方法可以获得Cyclic-Barrier 阻塞的线程数量。isBroken()方法用来了解阻塞的线程是否被中断。
-#### 控制并发线程数的Semaphore
+##### 控制并发线程数的Semaphore
 Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。
 * 应用场景
 Semaphore可以用于做流量控制，特别是公用资源有限的应用场景，比如数据库连接。
-#### 线程间交换数据的Exchanger
+##### 线程间交换数据的Exchanger
 Exchanger（交换者）是一个用于线程间协作的工具类。Exchanger用于进行线程间的数据交换。它提供一个同步点，在这个同步点，两个线程可以交换彼此的数据。这两个线程通过 exchange方法交换数据，如果第一个线程先执行exchange()方法，它会一直等待第二个线程也 执行exchange方法，当两个线程都到达同步点时，这两个线程就可以交换数据，将本线程生产
 出来的数据传递给对方。
-#### Exchanger的应用场景
+##### Exchanger的应用场景
 Exchanger可以用于遗传算法，遗传算法里需要选出两个人作为交配对象，这时候会交换两人的数据，并使用交叉规则得出2个交配结果。Exchanger也可以用于校对工作。
 
 第9章　Java中的线程池
@@ -494,27 +495,65 @@ Exchanger可以用于遗传算法，遗传算法里需要选出两个人作为�
 2）线程池判断工作队列是否已经满。如果工作队列没有满，则将新提交的任务存储在这个工作队列里。如果工作队列满了，则进入下个流程。
 3）线程池判断线程池的线程是否都处于工作状态。如果没有，则创建一个新的工作线程来执行任务。如果已经满了，则交给饱和策略来处理这个任务。
 
-#### 线程池的使用
-#### 线程池的创建
+##### 线程池的使用
+##### 1.线程池的创建
 创建一个线程池时需要输入几个参数，如下
 1）corePoolSize（线程池的基本大小）：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。
 2）runnableTaskQueue（任务队列）：用于保存等待执行的任务的阻塞队列。
 3）maximumPoolSize（线程池最大数量）：线程池允许创建的最大线程数。
 4）ThreadFactory：用于设置创建线程的工厂，可以通过线程工厂给每个创建出来的线程设置更有意义的名字。
-#### 向线程池提交任务
+##### 2.向线程池提交任务
 可以使用两个方法向线程池提交任务，分别为execute()和submit()方法。
 execute()方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功。
 submit()方法用于提交需要返回值的任务。
-#### 关闭线程池
+##### 3.关闭线程池
 可以通过调用线程池的shutdown或shutdownNow方法来关闭线程池。它们的原理是遍历线程池中的工作线程，然后逐个调用线程的interrupt方法来中断线程，所以无法响应中断的任务可能永远无法终止。
 至于应该调用哪 一种方法来关闭线程池，应该由提交到线程池的任务特性决定，通常调用shutdown方法来关闭线程池，如果任务不一定要执行完，则可以调用shutdownNow方法。
-#### 合理地配置线程池
+##### 4.合理地配置线程池
 要想合理地配置线程池，就必须首先分析任务特性，可以从以下几个角度来分析。
 * 任务的性质：CPU密集型任务、IO密集型任务和混合型任务。
 * 任务的优先级：高、中和低。
 * 任务的执行时间：长、中和短。
 * 任务的依赖性：是否依赖其他系统资源，如数据库连接。
 建议使用有界队列。有界队列能增加系统的稳定性和预警能力，可以根据需要设大一点儿，比如几千。
-#### 线程池的监控
+#### 5.线程池的监控
 如果在系统中大量使用线程池，则有必要对线程池进行监控，方便在出现问题时，可以根据线程池的使用状况快速定位问题。
 
+第10章　Executor框架
+----
+Java的线程既是工作单元，也是执行机制。从JDK 5开始，把工作单元与执行机制分离开来。工作单元包括Runnable和Callable，而执行机制由Executor框架提供。
+##### Executor框架简介
+##### 1.Executor框架的两级调度模型
+在上层，Java多线程程序通常把应用分解为若干个任务，然后使用用户级的调度器 （Executor框架）将这些任务映射为固定数量的线程；在底层，操作系统内核将这些线程映射到硬件处理器上。
+应用程序通过Executor框架控制上层的调度；而下层的调度由操作系统内核控制，下层的调度不受应用程序的控制。
+##### 2.Executor框架的结构与成员
+* Executor框架的结构
+ * 任务。包括被执行任务需要实现的接口：Runnable接口或Callable接口。
+ * 任务的执行。包括任务执行机制的核心接口Executor，以及继承自Executor的ExecutorService接口。Executor框架有两个关键类实现了ExecutorService接口 （ThreadPoolExecutor和ScheduledThreadPoolExecutor）。
+ * 异步计算的结果。包括接口Future和实现Future接口的FutureTask类。
+* Executor框架的成员
+Executor框架的主要成员：ThreadPoolExecutor、ScheduledThreadPoolExecutor、 Future接口、Runnable接口、Callable接口和Executors。
+#### ThreadPoolExecutor详解
+Executor框架最核心的类是ThreadPoolExecutor，它是线程池的实现类，主要由下列4个组件构成。
+* corePool：核心线程池的大小。
+* maximumPool：最大线程池的大小。
+* BlockingQueue：用来暂时保存任务的工作队列。
+* RejectedExecutionHandler：当ThreadPoolExecutor已经关闭或ThreadPoolExecutor已经饱和时（达到了最大线程池大小且工作队列已满），execute()方法将要调用的Handler。
+
+通过Executor框架的工具类Executors，可以创建3种类型的ThreadPoolExecutor。
+* FixedThreadPool：可重用固定线程数的线程池
+* SingleThreadExecutor：使用单个worker线程的Executor
+* CachedThreadPool：一个会根据需要创建新线程的线程池
+FixedThreadPool和SingleThreadExecutor使用无界队列LinkedBlockingQueue作为线程池的工作队列。CachedThreadPool使用没有容量的SynchronousQueue作为线程池的工作队列，但CachedThreadPool的maximumPool是无界的。这意味着，如果主线程提交任务的速度高于maximumPool中线程处理任务的速度时，CachedThreadPool会不断创建新线程。极端情况下， CachedThreadPool会因为创建过多线程而耗尽CPU和内存资源。
+
+##### FutureTask简介
+FutureTask除了实现Future接口外，还实现了Runnable接口。因此，FutureTask可以交给 Executor执行，也可以由调用线程直接执行（FutureTask.run()）。
+根据FutureTask.run()方法被执行 的时机，FutureTask可以处于下面3种状态。
+1）未启动。FutureTask.run()方法还没有被执行之前，FutureTask处于未启动状态。当创建一个FutureTask，且没有执行FutureTask.run()方法之前，这个FutureTask处于未启动状态。
+2）已启动。FutureTask.run()方法被执行的过程中，FutureTask处于已启动状态。
+3）已完成。FutureTask.run()方法执行完后正常结束，或被取消（FutureTask.cancel（…）），或 执行FutureTask.run()方法时抛出异常而异常结束，FutureTask处于已完成状态。
+##### FutureTask的使用
+可以把FutureTask交给Executor执行；也可以通过ExecutorService.submit（…）方法返回一个 FutureTask，然后执行FutureTask.get()方法或FutureTask.cancel（…）方法。除此以外，还可以单独 使用FutureTask。
+当一个线程需要等待另一个线程把某个任务执行完后它才能继续执行，此时可以使用 FutureTask。
+##### FutureTask的实现
+FutureTask的实现基于AbstractQueuedSynchronizer（以下简称为AQS）。java.util.concurrent中 的很多可阻塞类（比如ReentrantLock）都是基于AQS来实现的。AQS是一个同步框架，它提供通 用机制来原子性管理同步状态、阻塞和唤醒线程，以及维护被阻塞线程的队列。JDK 6中AQS 被广泛使用，基于AQS实现的同步器包括：ReentrantLock、Semaphore、ReentrantReadWriteLock、 CountDownLatch和FutureTask。
