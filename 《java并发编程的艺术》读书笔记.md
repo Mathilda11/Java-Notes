@@ -549,11 +549,17 @@ Executor框架最核心的类是ThreadPoolExecutor，它是线程池的实现类
 * BlockingQueue：用来暂时保存任务的工作队列。
 * RejectedExecutionHandler：当ThreadPoolExecutor已经关闭或ThreadPoolExecutor已经饱和时（达到了最大线程池大小且工作队列已满），execute()方法将要调用的Handler。
 
+（1）ThreadPoolExecutor
 通过Executor框架的工具类Executors，可以创建3种类型的ThreadPoolExecutor。
 * FixedThreadPool：可重用固定线程数的线程池
 * SingleThreadExecutor：使用单个worker线程的Executor
 * CachedThreadPool：一个会根据需要创建新线程的线程池
 FixedThreadPool和SingleThreadExecutor使用无界队列LinkedBlockingQueue作为线程池的工作队列。CachedThreadPool使用没有容量的SynchronousQueue作为线程池的工作队列，但CachedThreadPool的maximumPool是无界的。这意味着，如果主线程提交任务的速度高于maximumPool中线程处理任务的速度时，CachedThreadPool会不断创建新线程。极端情况下， CachedThreadPool会因为创建过多线程而耗尽CPU和内存资源。
+
+（2）ScheduledThreadPoolExecutor
+ScheduledThreadPoolExecutor通常使用工厂类Executors来创建。Executors可以创建2种类型的ScheduledThreadPoolExecutor。
+* ScheduledThreadPoolExecutor。包含若干个线程的ScheduledThreadPoolExecutor。
+* SingleThreadScheduledExecutor。只包含一个线程的ScheduledThreadPoolExecutor
 
 ##### FutureTask简介
 FutureTask除了实现Future接口外，还实现了Runnable接口。因此，FutureTask可以交给 Executor执行，也可以由调用线程直接执行（FutureTask.run()）。
