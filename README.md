@@ -7,7 +7,7 @@
 | ------------- |:-------------:|:-------------:|:-------------:|
 |多线程 | 操作系统 |算法 |框架 |
 
-## java多线程
+## 多线程
 - [《java并发编程的艺术》阅读笔记](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E3%80%8Ajava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0.md)
 - [synchronized](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/synchronized.md)
 - [锁](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E9%94%81.md)
