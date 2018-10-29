@@ -6,7 +6,7 @@
 
 | <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2694.png"  width="20" height="20">| <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4ee.png"  width="20" height="20">| <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f50d.png" width="20" height="20">|<img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3d6.png" width="20" height="20">|
 | ------------- |:-------------:|:-------------:|:-------------:|
-|[多线程](#多线程) | 操作系统 |算法 |框架 |
+|[多线程](#多线程) | [操作系统](#操作系统) |[算法[(#算法) | [框架](#框架) |
 
 ## 多线程
 - [《java并发编程的艺术》阅读笔记](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E3%80%8Ajava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0.md)
