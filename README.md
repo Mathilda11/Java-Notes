@@ -22,3 +22,4 @@
 - [《算法图解》阅读笔记](https://github.com/Mathilda11/Java-Notes/blob/master/MD/algorithm/%E3%80%8A%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0.md)
 - [《剑指offer》题解](https://github.com/Mathilda11/Algorithms)
 - [八大排序算法的实现](https://github.com/Mathilda11/Algorithms/tree/master/sort) 
+- [并查集](https://github.com/Mathilda11/Algorithms/tree/master/unionfind)
