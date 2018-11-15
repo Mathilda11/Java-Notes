@@ -29,3 +29,7 @@
 - [Proxy代理模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.md)
 - [Factory工厂模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
 - [Singleton单例模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
+- [Delegate委派模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%BC%8F.md)
+- [Strategy策略模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
+- [Prototype原型模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.md)
+- [Template模板模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F.md)
