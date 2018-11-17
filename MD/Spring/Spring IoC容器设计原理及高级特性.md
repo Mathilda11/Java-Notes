@@ -96,10 +96,10 @@ public class XmlBeanFactory extends DefaultListableBeanFactory{
 
 ### ApplicationContext
 ApplicationContext是Spring提供的一个高级的IoC容器，它除了能够提供IoC容器的基本功能外，还为用户提供了以下的附加服务。  
-1.  支持信息源，可以实现国际化。（实现MessageSource接口）         
-2.  访问资源。(实现ResourcePatternResolver接口，这个后面要讲) 
-3.  支持应用事件。(实现ApplicationEventPublisher接口)     
-4. 在ApplicationContext中提供的附加服务
+1. 支持不同的信息源，扩展了MessageSource接口，这些信息源的扩展功能可以支持国际化的实现，为开发多语言版本的应用提供服务。  
+2. 访问资源。体现在对ResourceLoader和Resource的支持上，这样可以从不同地方得到bean的定义资源，具体ApplicationContext都是继承了DefaultResourceLoader的子类。  
+3. 支持应用事件。继承了接口ApplicationEventPublisher。从而再上下文中引入了事件机制。这些事件和bean的生命周期的结合为Bean的管理提供了便利。  
+4. 提供了更多的附加服务。
 
 ### ApplicationContext容器的设计原理
 我们以常用的FileSystemXmlApplicationContext的实现为例说明ApplicationContext容器的设计原理。
