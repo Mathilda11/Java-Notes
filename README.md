@@ -33,5 +33,5 @@
 - [Strategy策略模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
 - [Prototype原型模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.md)
 - [Template模板模式](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F.md)
-- [Spring IOC容器设计原理及高级特性](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/IOC%E5%AE%B9%E5%99%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E5%8F%8A%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
+- [Spring IoC容器设计原理及高级特性](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/IOC%E5%AE%B9%E5%99%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E5%8F%8A%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
 - [Spring IoC容器的初始化](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%20IoC%E5%AE%B9%E5%99%A8%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96.md)
