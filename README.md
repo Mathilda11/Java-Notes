@@ -37,3 +37,4 @@
 - [Spring IoC容器的初始化](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%20IoC%E5%AE%B9%E5%99%A8%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96.md)
 - [FactoryBean与BeanFactory的区别](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/FactoryBean%E4%B8%8EBeanFactory%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 - [AOP设计原理](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/AOP%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86.md)
+- [Spring的声明式事务底层原理](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.md)
