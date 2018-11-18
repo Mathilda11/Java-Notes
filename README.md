@@ -38,3 +38,4 @@
 - [FactoryBean与BeanFactory的区别](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/FactoryBean%E4%B8%8EBeanFactory%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 - [AOP设计原理](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/AOP%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86.md)
 - [Spring的声明式事务底层原理](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.md)
+- [Spring事务处理机制](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
