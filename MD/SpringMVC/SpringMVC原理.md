@@ -39,9 +39,8 @@ View：是展示给用户的界面，通常需要标签语言展示模型数据�
 
 在SpringMVC的各个组件中，处理器映射器HandlerMapping、处理器适配器HandlerAdapter、视图解析器ViewResolver称为SpringMVC的三大组件，由框架提供。
 
-下边两个组件通常情况下需要开发：
+下边两个组件通常情况下需要开发：  
 Handler：处理器。  
-
 View：视图。
 
 
