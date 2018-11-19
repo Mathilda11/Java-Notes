@@ -40,6 +40,7 @@
 - [Spring的声明式事务底层原理](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.md)
 - [Spring事务处理机制](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/Spring%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
 - [TransactionalEventListener实现事务监控](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/TransactionalEventListener%E5%AE%9E%E7%8E%B0%E4%BA%8B%E5%8A%A1%E7%9B%91%E6%8E%A7.md)
+- [基于Spring JDBC手写ORM框架](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Spring/%E5%9F%BA%E4%BA%8ESpring%20JDBC%E6%89%8B%E5%86%99ORM%E6%A1%86%E6%9E%B6.md)
 
 ## SpringMVC
 - [SpringMVC原理](https://github.com/Mathilda11/Java-Notes/blob/master/MD/SpringMVC/SpringMVC%E5%8E%9F%E7%90%86.md)
