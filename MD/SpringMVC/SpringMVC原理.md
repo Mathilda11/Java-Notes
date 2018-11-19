@@ -1,7 +1,9 @@
 ## SpringMVC概述
 SpringMVC是一个基于MVC的Web框架。
 Spring Web MVC和Struts2都属于表现层的框架，它是Spring框架的一部分，我们可以从Spring的整体结构中看得出来：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181119104410701.png)框架性质的C层要完成的主要工作：封装Web请求为一个数据对象、调用业务层来处理数据对象、 返回处理数据结果及相应的视图给用户。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181119104410701.png)
+
+框架性质的C层要完成的主要工作：封装Web请求为一个数据对象、调用业务层来处理数据对象、 返回处理数据结果及相应的视图给用户。
 
 Spring C层框架的核心是DispatcherServlet，它的作用是将请求分发给不同的后端处理器，也即使用 了一种被称为前端控制器的模式。 Spring 的C层框架使用了后端控制器、映射处理器和视图解析器来共同完成C层框架的主要工作。并且spring 的C层框架还真正地把业务层处理的数据结果和相应的视图拼成一个对象，即我们后面会经常用到的ModelAndView对象。
 
@@ -33,7 +35,7 @@ Handler：继DispatcherServlet前端控制器的后端控制器，在DispatcherS
 
 ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。
 
-View：是展示给用户的界面，通常需要标签语言展示模型数据。SpringMVC框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。
+View：是展示给用户的界面，通常需要标签语言展示模型数据。SpringMVC框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。  
 
 在SpringMVC的各个组件中，处理器映射器HandlerMapping、处理器适配器HandlerAdapter、视图解析器ViewResolver称为SpringMVC的三大组件，由框架提供。
 
