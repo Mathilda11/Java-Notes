@@ -10,7 +10,7 @@
 
 ## Java
 - 集合框架
-  * [ArrayList源码分析（初始化、add、remove及动态扩容]()
+  * [ArrayList源码分析（初始化、add、remove及动态扩容](https://github.com/Mathilda11/Java-Notes/blob/master/MD/Collection/ArrayList%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81add%E3%80%81remove%E5%8F%8A%E5%8A%A8%E6%80%81%E6%89%A9%E5%AE%B9%EF%BC%89.md)
 - 多线程
   * [《java并发编程的艺术》阅读笔记](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E3%80%8Ajava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0.md)
   * [synchronized](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/synchronized.md)
