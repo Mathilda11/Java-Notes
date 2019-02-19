@@ -17,7 +17,8 @@
   * [锁](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E9%94%81.md)
   * [线程通信](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1.md)
   * [多线程之问题总结](https://github.com/Mathilda11/Java-Notes/blob/master/MD/concurrent/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93.md)
-
+- JVM
+ * [Java 运行时数据区域](https://github.com/Mathilda11/Java-Notes/blob/master/MD/JVM/Java%20%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.md)
 ## 操作系统
 - [《计算机操作系统》阅读笔记](https://github.com/Mathilda11/Java-Notes/blob/master/MD/OS/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0.md)
 - [Linux](https://github.com/Mathilda11/Java-Notes/blob/master/MD/OS/Linux.md)
