@@ -51,3 +51,4 @@
 - [Spring IoC容器和SpringMVC IoC容器的关系](https://github.com/Mathilda11/Java-Notes/blob/master/MD/SpringMVC/Spring%20IoC%E5%AE%B9%E5%99%A8%E5%92%8CSpringMVC%20IoC%E5%AE%B9%E5%99%A8%E7%9A%84%E5%85%B3%E7%B3%BB.md)
 
 ## 系统设计
+- [关于秒杀系统的一些设计思路](https://github.com/Mathilda11/Java-Notes/blob/master/MD/SystemDesign/%E5%85%B3%E4%BA%8E%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF.md)
